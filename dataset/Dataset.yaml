@@ -1,0 +1,25 @@
+path: /dataset
+train: /dataset/images/train
+val: /dataset/images/val
+test: /dataset/images/test
+
+nc: 9
+names: [Human, Whale, Fish, Artificial fish, Dolphin, Octopus, Turtle, Gulper eel, Monstrous fish]
+
+augment:
+  transforms:
+    - type: RandomBrightnessContrast
+      p: 0.3
+    - type: HueSaturationValue
+      hue_shift_limit: 10
+      sat_shift_limit: 20
+      val_shift_limit: 10
+      p: 0.3
+    - type: HorizontalFlip
+      p: 0.5
+    - type: Rotate
+      limit: 15
+      p: 0.5
+    - type: Blur
+      blur_limit: 3
+      p: 0.2
